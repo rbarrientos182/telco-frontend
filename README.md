@@ -25,3 +25,39 @@ src/
 ├── views/        # Páginas (Login y Monitor de Riesgo)
 └── router/       # Guardias de navegación (Seguridad)
 ```
+
+🚀 Instalación y Configuración
+
+1. Clonar y Preparar
+   Bash
+   git clone https://github.com/rbarrientos182/telco-frontend.git
+   cd telco-frontend
+   npm install
+2. Variables de Entorno
+   Crea un archivo .env en la raíz con la dirección de tu backend en Django:
+
+Fragmento de código
+VITE_API_URL=http://localhost:8000/api
+
+3. Ejecución en Desarrollo
+   Bash
+   npm run dev
+   🔒 Seguridad e Integración
+   El sistema utiliza JSON Web Tokens (JWT) para la comunicación segura.
+
+El usuario se autentica contra el backend de Django.
+
+El token se almacena de forma segura en localStorage y se gestiona mediante el Auth Store de Pinia.
+
+Se utiliza un Navigation Guard en Vue Router para prevenir el acceso no autorizado al Monitor de Riesgo.
+
+📊 Dashboard de Riesgo
+El monitor clasifica a los clientes en tres niveles mediante colores corporativos:
+
+🔴 Crítico (>70%): Requiere llamada de retención inmediata.
+
+🟡 Observación (40%-70%): Cliente con señales de abandono.
+
+🟢 Estable (<40%): Cliente con baja probabilidad de fuga.
+
+Autor: Ing. Barrientos
